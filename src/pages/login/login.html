@@ -1,0 +1,81 @@
+<ion-content padding text-center>
+	<img alt="logo" src="assets/imgs/logo.png" class="logo-login">
+	<div padding>
+		<form novalidate #loginF="ngForm" (ngSubmit)="!resetForm ? login(loginF) : reset(loginF)" padding *ngIf="!registerForm">
+			<h3>{{ !resetForm ? 'Login' : 'Forgot password' }}</h3>
+			<ion-list>
+				<ion-item>
+					<ion-label floating>{{ 'Email' }}</ion-label>
+					<ion-input type="email" ngModel name="username" required></ion-input>
+				</ion-item>
+				<ion-item *ngIf="!resetForm">
+					<ion-label floating>{{ 'Password' }}</ion-label>
+					<ion-input type="password" ngModel name="password" required></ion-input>
+				</ion-item>
+			</ion-list>
+			<button ion-button block [disabled]="!loginF.valid">{{ !resetForm ? 'Login' : 'Reset password' }}</button>
+		</form>
+		<form novalidate #registerF="ngForm" (ngSubmit)="register(registerF)" padding *ngIf="registerForm">
+			<h3>{{ 'Register' }}</h3>
+			<ion-list>
+				<ion-item>
+					<ion-label floating>{{ 'Username' }}</ion-label>
+					<ion-input type="text" ngModel name="username" required></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label floating>{{ 'Email' }}</ion-label>
+					<ion-input type="email" ngModel name="email" required></ion-input>
+				</ion-item>
+				<ion-item *ngIf="registerExtras?.phone?.enabled">
+					<ion-label floating>{{ 'Phone' }}</ion-label>
+					<ion-input type="text" ngModel name="phone"></ion-input>
+				</ion-item>
+				<ion-item *ngIf="registerExtras?.user_type?.enabled">
+					<ion-label floating>{{ 'User type' }}</ion-label>
+					<ion-select ngModel name="user_type">
+						<ion-option value="buyer">{{ 'Buyer' }}</ion-option>
+						<ion-option value="seller">{{ 'Seller' }}</ion-option>
+					</ion-select>
+				</ion-item>
+				<ion-item>
+					<ion-label floating>{{ 'Password' }}</ion-label>
+					<ion-input type="password" ngModel name="password" required></ion-input>
+				</ion-item>
+				<ion-item>
+					<ion-label floating>{{ 'Confirm password' }}</ion-label>
+					<ion-input type="password" ngModel name="password2" required></ion-input>
+				</ion-item>
+				<ion-item *ngIf="registerExtras?.company?.enabled">
+					<ion-label floating>{{ 'Company' }}</ion-label>
+					<ion-input type="text" ngModel name="company"></ion-input>
+				</ion-item>
+				<ion-item *ngIf="registerExtras?.tos?.enabled">
+					<ion-label>{{ registerExtras?.tos?.label }}</ion-label>
+					<ion-checkbox ngModel name="tos"></ion-checkbox>
+				</ion-item>
+			</ion-list>
+			<button ion-button block [disabled]="!registerF.valid">{{ 'Register' }}</button>
+		</form>
+		<ion-grid>
+			<ion-row>
+				<ion-col col-4 text-left>
+					<button ion-button clear color="secondary" (click)="switchRegisterForm()">{{ !registerForm ? 'Register' : 'Login' }}</button>
+				</ion-col>
+				<ion-col col-8 text-right *ngIf="!registerForm">
+					<button ion-button clear color="dark" (click)="switchResetForm()">{{ !resetForm ? 'Forgot password?' : 'Back to login' }}</button>
+				</ion-col>
+			</ion-row>
+			<ion-row *ngIf="!registerForm">
+				<ion-col col-12 text-center>
+					<h6>{{ 'OR' }}</h6>
+				</ion-col>
+				<ion-col col-12>
+					<button ion-button color="facebook" block (click)="fbLogin()">{{ 'Login with Facebook' }}</button>
+				</ion-col>
+				<ion-col col-12>
+					<button ion-button color="google" block (click)="gpLogin()">{{ 'Login with Google' }}</button>
+				</ion-col>
+			</ion-row>
+		</ion-grid>
+	</div>
+</ion-content>

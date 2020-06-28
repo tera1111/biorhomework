@@ -1,0 +1,40 @@
+{
+	"project_info": {
+		"project_number": "660393954385",
+		"firebase_url": "https://biorhomework.firebaseio.com",
+		"project_id": "biorhomework",
+		"storage_bucket": "biorhomework.appspot.com"
+	},
+	"client": [
+		{
+			"client_info": {
+				"mobilesdk_app_id": "1:660393954385:android:9624a713b4f3fb960d7c70",
+				"android_client_info": {
+					"package_name": "com.biorhomework.app"
+				}
+			},
+			"oauth_client": [
+				{
+					"client_id": "660393954385-38s371sl1gcr1jd74a36jvtj15dibpa5.apps.googleusercontent.com",
+					"client_type": 3
+				}
+			],
+			"api_key": [
+				{
+					"current_key": "AIzaSyAHvCVebEdQQ_lcqGOqFKGZTz7o-aLJvqw"
+				}
+			],
+			"services": {
+				"appinvite_service": {
+					"other_platform_oauth_client": [
+						{
+							"client_id": "660393954385-38s371sl1gcr1jd74a36jvtj15dibpa5.apps.googleusercontent.com",
+							"client_type": 3
+						}
+					]
+				}
+			}
+		}
+	],
+	"configuration_version": "1"
+}

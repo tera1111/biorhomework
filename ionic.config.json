@@ -1,0 +1,7 @@
+{
+  "name": "jobster",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,22 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title text-center>
+			<img alt="logo" src="assets/imgs/logo.png" class="logo-login"  height="34">
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content>
+	<ng-progress #progressBar></ng-progress>
+	<iframe [src]="iframeSrc" frameborder="0" scrolling="no" allowfullscreen [class.display-none]="!webShow" id="viewSite" (load)="progressBarComplete()"></iframe>
+
+	<ion-list [class.display-none]="webShow">
+		<button ion-item (click)="logout()">{{ 'Logout' }}</button>
+		<div *ngFor="let item of menuList">
+			<button ion-item (click)="item.url && goTo(item.url)">{{ item.label }}</button>
+			<ion-list *ngIf="!item.url">
+				<button ion-item (click)="child.url && goTo(child.url)" *ngFor="let child of item.childs">{{ child.label }}</button>
+			</ion-list>
+		</div>
+	</ion-list>
+</ion-content>
